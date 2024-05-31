@@ -27,6 +27,65 @@ public class TurnosController : ControllerBase
         return Ok(turnos);
     }
 
+    [HttpGet("obter-todos-reader", Name = "ObterTurnosComProcedureUsandoReader")]
+    public async Task<IActionResult> ObterComReader()
+    {
+        var connection = new SqlConnection(_connectionString);
+
+        await connection.OpenAsync();
+        
+        var nomeProc = "dbo.ObterTurnos";
+
+        var reader = await connection.ExecuteReaderAsync(nomeProc, commandType: CommandType.StoredProcedure);
+
+        var turnos = new List<Turno>();
+
+        while (reader.Read())
+        {
+            var turno = new Turno
+            {
+                Id = reader.GetInt32(0),
+                Nome = reader.GetString(1),
+                DataCriacao = reader.GetDateTime(2)
+            };
+
+            turnos.Add(turno);
+        }
+
+        await connection.CloseAsync();
+
+        return Ok(turnos);
+    }
+
+    [HttpGet("obter-todos-data-table", Name = "ObterTurnosComProcedureUsandoDataTable")]
+    public async Task<IActionResult> ObterComReaderEDataTable()
+    {
+        using var connection = new SqlConnection(_connectionString);
+
+
+
+        var nomeProc = "dbo.ObterTurnos";
+        var reader = await connection.ExecuteReaderAsync(nomeProc, commandType: CommandType.StoredProcedure);
+
+        var datatable = new DataTable();
+        datatable.Load(reader);
+
+        var turnos = new List<Turno>();
+
+        foreach (DataRow row in datatable.Rows)
+        {
+            var turno = new Turno
+            {
+                Id = (int)row["Id"],
+                Nome = (string)row["Nome"],
+                DataCriacao = (DateTime)row["DataCriacao"]
+            };
+            turnos.Add(turno);
+        }
+
+        return Ok(turnos);
+    }
+
     [HttpGet("{id}", Name = "ObterTurnoPorIdProcedure")]
     public async Task<IActionResult> ObterPorId(int id)
     {
