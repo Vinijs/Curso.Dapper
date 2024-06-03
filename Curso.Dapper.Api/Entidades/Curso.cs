@@ -1,4 +1,6 @@
-﻿namespace Curso.Dapper.Api.Entidades;
+﻿using Curso.Dapper.Api.Enums;
+
+namespace Curso.Dapper.Api.Entidades;
 
 public class Curso
 {
@@ -7,6 +9,7 @@ public class Curso
     public string Descricao { get; set; }
     public string Coordenador { get; set; }
     public string Professor { get; set; }
-    public DateTime Criacao { get; set; }
+    public TipoCurso TipoCurso { get; set; }
+    public DateTime DataCriacao { get; set; }
     public IEnumerable<Turma> Turmas { get; set; }
 }

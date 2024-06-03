@@ -1,10 +1,12 @@
-﻿namespace Curso.Dapper.Api.Entidades;
+﻿using Curso.Dapper.Api.ValueObjects;
+
+namespace Curso.Dapper.Api.Entidades;
 
 public class Aluno
 {
     public int Id { get; set; }
     public string Nome { get; set; }
-    public string Email { get; set; }
+    public Email Email { get; set; }
     public DateTime DataNascimento { get; set; }
     public bool Ativo { get; set; }
     public DateTime DataCriacao { get; set; }
