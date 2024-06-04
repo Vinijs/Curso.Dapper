@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Curso.Dapper.Api", "Curso.Dapper.Api\Curso.Dapper.Api.csproj", "{4381915F-353E-4304-9EFB-E63982D15830}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Curso.Dapper.Api", "Curso.Dapper.Api\Curso.Dapper.Api.csproj", "{4381915F-353E-4304-9EFB-E63982D15830}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Curso.Dapper.ComEntity.Api", "Curso.Dapper.ComEntity.Api\Curso.Dapper.ComEntity.Api.csproj", "{F552A744-716B-4F69-BA27-72B4F650AE08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4381915F-353E-4304-9EFB-E63982D15830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4381915F-353E-4304-9EFB-E63982D15830}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4381915F-353E-4304-9EFB-E63982D15830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F552A744-716B-4F69-BA27-72B4F650AE08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F552A744-716B-4F69-BA27-72B4F650AE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F552A744-716B-4F69-BA27-72B4F650AE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F552A744-716B-4F69-BA27-72B4F650AE08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
