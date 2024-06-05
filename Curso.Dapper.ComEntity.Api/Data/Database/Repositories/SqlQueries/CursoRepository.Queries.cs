@@ -17,8 +17,7 @@ public partial class CursoRepository
                       Descricao = @Descricao,
                       TipoCurso = @TipoCurso,
                       Coordenador = @Coordenador,
-                      Professor = @Professor,
-                      DataCriacao = @DataCriacao
+                      Professor = @Professor
                   WHERE Id = @id";
 
     const string _sqlExcluir = @"DELETE FROM dbo.Cursos Where Id = @id";

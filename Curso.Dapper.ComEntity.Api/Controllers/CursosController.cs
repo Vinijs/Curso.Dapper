@@ -28,4 +28,18 @@ public class CursosController : ControllerBase
         await _mediator.Publish(command);
         return Ok();
     }
+
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] AlterarCursoCommand command)
+    {
+        await _mediator.Publish(command);
+        return Ok();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        _ = await _mediator.Send(new RemoverCursoCommand(id));
+        return Ok();
+    }
 }
