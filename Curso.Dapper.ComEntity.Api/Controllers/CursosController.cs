@@ -22,6 +22,13 @@ public class CursosController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var result = await _mediator.Send(new ObterPorIdCursoQuery(id));
+        return Ok(result);
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] CadastrarCursoCommand command)
     {

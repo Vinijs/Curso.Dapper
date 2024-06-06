@@ -45,6 +45,12 @@ public class AlterarCursoCommandHandler : ICommandHandler<AlterarCursoCommand>
             //Alguma outra logica de negócio
 
             _unitOfWork.Commit();
+
+            //Envio de email
+
+            //Envio de notificação
+
+            //_unitOfWork.Commit();
         }
         catch (Exception ex)
         {

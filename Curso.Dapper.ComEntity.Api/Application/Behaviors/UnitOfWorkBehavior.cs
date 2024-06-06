@@ -1,5 +1,6 @@
 ﻿using Curso.Dapper.ComEntity.Api.Data.Database.Interfaces;
 using MediatR;
+using System.Transactions;
 
 namespace Curso.Dapper.ComEntity.Api.Application.Behaviors;
 
@@ -26,9 +27,13 @@ public sealed class UnitOfWorkBehavior<TRequest, TResponse> : IPipelineBehavior<
             if (!typeof(TRequest).Name.EndsWith("Command"))
                 return await next();
 
+            using var transactionScope = new TransactionScope();
+
             response = await next();
 
             _unitOfWork.Commit();
+
+            transactionScope.Complete();
         }
         catch (Exception ex)
         {
